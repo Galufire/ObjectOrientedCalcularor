@@ -194,7 +194,7 @@ namespace calculator
             a = float.Parse(textBox1.Text);
             textBox1.Clear();
             count = 6;
-            label1.Text = "cin (" + a.ToString() + ")";
+            label1.Text = "cos (" + a.ToString() + ")";
             znak = true;
         }
 
