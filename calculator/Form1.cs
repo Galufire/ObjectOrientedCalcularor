@@ -17,7 +17,7 @@ namespace calculator
             InitializeComponent();
         }
 
-        float a, b;
+        double a, b;
         int count;
         bool znak = true;
 
@@ -39,6 +39,10 @@ namespace calculator
                     break;
                 case 4:
                     b = a / float.Parse(textBox1.Text);
+                    textBox1.Text = b.ToString();
+                    break;
+                case 5:
+                    b = Math.Sin(a);
                     textBox1.Text = b.ToString();
                     break;
 
@@ -159,6 +163,7 @@ namespace calculator
 
         private void Button16_Click(object sender, EventArgs e)
         {
+            
             if (znak == true)
             {
                 textBox1.Text = "-" + textBox1.Text;
@@ -173,7 +178,11 @@ namespace calculator
 
         private void Button20_Click(object sender, EventArgs e)
         {
-
+            a = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 5;
+            label1.Text = "sin (" + a.ToString() + ")";
+            znak = true;
         }
 
         private void Button2_Click(object sender, EventArgs e)
