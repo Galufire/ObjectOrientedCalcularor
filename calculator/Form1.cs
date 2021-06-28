@@ -45,6 +45,10 @@ namespace calculator
                     b = Math.Sin(a);
                     textBox1.Text = b.ToString();
                     break;
+                case 6:
+                    b = Math.Cos(a);
+                    textBox1.Text = b.ToString();
+                    break;
 
                 default:
                     break;
@@ -182,6 +186,15 @@ namespace calculator
             textBox1.Clear();
             count = 5;
             label1.Text = "sin (" + a.ToString() + ")";
+            znak = true;
+        }
+
+        private void Button21_Click(object sender, EventArgs e)
+        {
+            a = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 6;
+            label1.Text = "cin (" + a.ToString() + ")";
             znak = true;
         }
 

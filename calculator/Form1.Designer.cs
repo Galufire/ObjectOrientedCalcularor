@@ -290,6 +290,7 @@
             this.button21.TabIndex = 22;
             this.button21.Text = "cos (x)";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // button20
             // 
