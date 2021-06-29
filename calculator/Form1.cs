@@ -19,7 +19,7 @@ namespace calculator
 
         double a, b;
         int count;
-        bool znak = true;
+        bool znak = true, entercheck = false;
 
         private void multiply()
         {
@@ -77,6 +77,7 @@ namespace calculator
 
         private void zerocheck()        //Проверяет окно на нуль. При его наличие - убирает
         {
+            entercheck = false;
             if (textBox1.Text == "0")
             {
                 textBox1.Clear();
@@ -85,6 +86,7 @@ namespace calculator
         }
         private void calculate()
         {
+            
             switch (count)
             {
                 case 1:
@@ -108,6 +110,11 @@ namespace calculator
 
                 default:
                     break;
+            }
+            if (entercheck == false)
+            {
+                a = double.Parse(textBox1.Text);
+                entercheck = true;
             }
             textBox1.Text = b.ToString();       //Оптимизировал код(теперь выполняется одним действием после переключателя)
         }
@@ -195,11 +202,12 @@ namespace calculator
         private void Button14_Click(object sender, EventArgs e)
         {
             calculate();
-            //label1.Text = "";
+            label1.Text = "";
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            entercheck = false;
             textBox1.Clear();
             textBox1.Text = textBox1.Text + 0;      //Не делает окно пустым(заполняет нулём)
             label1.Text = "";
@@ -207,6 +215,7 @@ namespace calculator
 
         private void Button17_Click(object sender, EventArgs e)
         {
+            entercheck = false;
             int lenght = textBox1.Text.Length - 1;
             string text = textBox1.Text;
             textBox1.Clear();
@@ -307,6 +316,7 @@ namespace calculator
                     label1.Text = "";
                     break;
                 case Keys.Back:
+                    entercheck = false;
                     int lenght = textBox1.Text.Length - 1;
                     string text = textBox1.Text;
                     textBox1.Clear();
