@@ -195,7 +195,7 @@ namespace calculator
         private void Button14_Click(object sender, EventArgs e)
         {
             calculate();
-            label1.Text = "";
+            //label1.Text = "";
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -330,12 +330,18 @@ namespace calculator
                 textBox1.Text = textBox1.Text + 0;
             switch (e.KeyChar)
             {
+                case 's': case 'ы':
+                    sinus();break;
+                case 'c': case 'с':
+                    cosinus();break;
+                case 'x': case 'ч':
+                    multiply();break;
+                case '/': case 'd': case 'в':
+                    devide();break;
                 case '-':
-                    minus();
-                    break;
+                    minus();break;
                 case '.':case ',':
-                    textBox1.Text = textBox1.Text + ",";
-                    break;
+                    textBox1.Text = textBox1.Text + ",";break;
             }
         }
 
