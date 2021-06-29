@@ -21,6 +21,60 @@ namespace calculator
         int count;
         bool znak = true;
 
+        private void multiply()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 3;
+            label1.Text = a.ToString() + "*";
+            znak = true;
+        }
+
+        private void devide()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 4;
+            label1.Text = a.ToString() + "/";
+            znak = true;
+        }
+
+        private void plus()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 1;
+            label1.Text = a.ToString() + "+";
+            znak = true;
+        }
+
+        private void minus()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 2;
+            label1.Text = a.ToString() + "-";
+            znak = true;
+        }
+
+        private void sinus()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 5;
+            label1.Text = "sin (" + a.ToString() + ")";
+            znak = true;
+        }
+
+        private void cosinus()
+        {
+            a = double.Parse(textBox1.Text);
+            textBox1.Clear();
+            count = 6;
+            label1.Text = "cos (" + a.ToString() + ")";
+            znak = true;
+        }
+
         private void zerocheck()        //Проверяет окно на нуль. При его наличие - убирает
         {
             if (textBox1.Text == "0")
@@ -120,38 +174,22 @@ namespace calculator
 
         private void Button19_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 1;
-            label1.Text = a.ToString() + "+";
-            znak = true;
+            plus();
         }
 
         private void Button18_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 2;
-            label1.Text = a.ToString() + "-";
-            znak = true;
+            minus();
         }
 
         private void Button15_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 3;
-            label1.Text = a.ToString() + "*";
-            znak = true;
+            multiply();
         }
 
         private void Button13_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 4;
-            label1.Text = a.ToString() + "/";
-            znak = true;
+            devide();
         }
 
         private void Button14_Click(object sender, EventArgs e)
@@ -197,20 +235,12 @@ namespace calculator
 
         private void Button20_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 5;
-            label1.Text = "sin (" + a.ToString() + ")";
-            znak = true;
+            sinus();
         }
 
         private void Button21_Click(object sender, EventArgs e)
         {
-            a = double.Parse(textBox1.Text);
-            textBox1.Clear();
-            count = 6;
-            label1.Text = "cos (" + a.ToString() + ")";
-            znak = true;
+            cosinus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -264,25 +294,13 @@ namespace calculator
                     textBox1.Text = textBox1.Text + 9;
                     break;
                 case Keys.Add:
-                    a = double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    count = 1;
-                    label1.Text = a.ToString() + "+";
-                    znak = true;
+                    plus();
                     break;
                 case Keys.Multiply:
-                    a = double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    count = 3;
-                    label1.Text = a.ToString() + "*";
-                    znak = true;
+                    multiply();
                     break;
                 case Keys.Divide:
-                    a = double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    count = 4;
-                    label1.Text = a.ToString() + "/";
-                    znak = true;
+                    devide();
                     break;
                 case Keys.Enter:
                     calculate();
@@ -313,16 +331,17 @@ namespace calculator
             switch (e.KeyChar)
             {
                 case '-':
-                    a = double.Parse(textBox1.Text);
-                    textBox1.Clear();
-                    count = 2;
-                    label1.Text = a.ToString() + "-";
-                    znak = true;
+                    minus();
                     break;
                 case '.':case ',':
                     textBox1.Text = textBox1.Text + ",";
                     break;
             }
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
