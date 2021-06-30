@@ -8,14 +8,19 @@ namespace CalcularorWebApplication.Controllers
 {
     public class HomeController : Controller
     {
+        double result;
+        double secondresult;
+
         public ActionResult Index()
         {
             ViewBag.Operation = new SelectListItem[]
             {
-                new SelectListItem() { Value = "multiply", Text ="multiply" },
-                new SelectListItem() { Value = "sum", Text ="sum" },
-                new SelectListItem() { Value = "minus", Text ="minus" },
-                new SelectListItem() { Value = "division", Text ="division" }
+                new SelectListItem() { Value = "multiply", Text ="Умножение" },
+                new SelectListItem() { Value = "sum", Text ="Сумма" },
+                new SelectListItem() { Value = "minus", Text ="Разность" },
+                new SelectListItem() { Value = "division", Text ="Деление" },
+                new SelectListItem() { Value = "sin", Text ="sin (Первое окно)" },
+                new SelectListItem() { Value = "cos", Text ="cos (Первое окно)" }
             };
             return View();
         }
@@ -25,30 +30,51 @@ namespace CalcularorWebApplication.Controllers
             double secondNumber,
             string operation)
         {
-            TwoArgumentsCalculator calculator = TwoArgumentsFactory.CreateCalculator(operation);
-            double result = calculator.Calculate(firstNumber, secondNumber);
+            switch (operation)
+            {
+                case "multiply":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "sum":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "minus":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "division":
+                    result = firstNumber / secondNumber;
+                    break;
+                case "sin":
+                    result = Math.Sin(firstNumber);
+                    break;
+                case "cos":
+                    result = Math.Cos(firstNumber);
+                    break;
+            }
 
             ViewBag.Result = result;
             ViewBag.Operation = new SelectListItem[]
             {
-                new SelectListItem() { Value = "multiply", Text ="multiply" },
-                new SelectListItem() { Value = "sum", Text ="sum" },
-                new SelectListItem() { Value = "minus", Text ="minus" },
-                new SelectListItem() { Value = "division", Text ="division" }
+                new SelectListItem() { Value = "multiply", Text ="Умножение" },
+                new SelectListItem() { Value = "sum", Text ="Сумма" },
+                new SelectListItem() { Value = "minus", Text ="Разность" },
+                new SelectListItem() { Value = "division", Text ="Деление" },
+                new SelectListItem() { Value = "sin", Text ="sin (Первое окно)" },
+                new SelectListItem() { Value = "cos", Text ="cos (Первое окно)" }
             };
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Калькулятор с возможностью суммы, разности, умножение, деления и нахождения синуса и косинуса";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Авторы работы:";
 
             return View();
         }

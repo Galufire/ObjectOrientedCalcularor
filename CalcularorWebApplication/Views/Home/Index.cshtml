@@ -1,13 +1,16 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Калькулятор";
 }
 
 
 
 @using (Html.BeginForm("Index", "Home", "Post"))
 {
+    <p>Первое число (Так же используется для тригонометрических операций)</p>
     <input type="number" name="firstNumber" value="0" />
+    <p>Второе число</p>
     <input type="number" name="secondNumber" value="0" />
+    <p>Операция:</p>
     <select name="operation">
         @for (int i = 0; i < ViewBag.Operation.Length; i++)
         {
@@ -16,6 +19,6 @@
             </option>
         }
     </select>
-    <input type="submit" value="вычислить" />
-    <p>@ViewBag.Result</p>
+    <input type="submit" value="Вычислить" />
+    <p>Результат: @ViewBag.Result</p>
 }
